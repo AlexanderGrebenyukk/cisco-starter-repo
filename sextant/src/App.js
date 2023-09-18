@@ -1,25 +1,23 @@
+import React, { Component } from 'react';
 import './App.css';
-import React from 'react';
-
-const Banner = ({ title }) => {
-  return (
-    <div className="banner">
-      <h1>{title}</h1>
-    </div>
-  );
-};
-const Exhibit = ({ title, children }) => {
-  return (
-    <div className="exhibit">
-      <h2>{title}</h2>
-      {children}
-    </div>
-  );
-};
-function App() {
-  return (
-    <Banner title={"Sextant"}/>
-  );
+import Banner from './Banner';
+import Exhibit from './Exhibit';
+import IPAddresses from './IPAddresses';
+class App extends Component {
+    render() {
+        return (
+            <div className="App">
+                <Banner bannerText="Sextant" />
+                <Exhibit name="I'm an exhibit!"></Exhibit>
+                <Exhibit name="IP Address v6">
+                    <IPAddresses IPtype = "IPv6"/>
+                </Exhibit>
+                <Exhibit name="IP Address v4" child>
+                    <IPAddresses IPtype = "IPv4"/>
+                </Exhibit>
+            </div>
+        );
+    }
 }
 
 export default App;
